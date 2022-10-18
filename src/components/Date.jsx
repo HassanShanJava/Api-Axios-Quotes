@@ -1,19 +1,16 @@
 import React from 'react'
-
+import {DateContiner} from "./Styles/DateStyles"
 
 const DateToday = () => {
   
   let today=new Date();
-
-  console.log(today);
-
+  console.log(today)
   let date=today.getMonth()+1+"/"+today.getDate()+"/"+today.getFullYear()
 
-
   return (
-    <div>
+    <DateContiner>
         <p>{date}</p>
-    </div>
+    </DateContiner>
   )
 }
 

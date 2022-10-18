@@ -2,6 +2,9 @@ import React from 'react'
 import Moment from "react-moment"
 import "moment-timezone"
 
+import {TimeContainer, TimeStamp, Greeting} from "./Styles/TimeStyles"
+
+
 const Time = () => {
 
   let today=new Date();
@@ -13,19 +16,19 @@ const Time = () => {
     }else if(today.getHours()>=12 && today.getHours()<17){
       return "Good Afternoon, Hassan."
     }else if(today.getHours()>=17 && today.getHours()<24){
-      return "Good Eveening, Hassan."
+      return "Good Evening, Hassan."
     }else{
       return "It's Late, what are you doing here?"
     }
   }
 
   return (
-    <div>
-        <p>
+    <TimeContainer>
+        <TimeStamp>
           <Moment format='LT'></Moment>
-        </p>
-        <p>{greetin()}</p>
-    </div>
+        </TimeStamp>
+        <Greeting>{greetin()}</Greeting>
+    </TimeContainer>
   )
 }
 

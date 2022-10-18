@@ -1,6 +1,8 @@
 import React, {useState,useEffect} from 'react'
 import axios from 'axios'
 
+import {WeatherContainer, Temp, City} from "./Styles/WeatherStyles"
+
 
 const url=`https://api.openweathermap.org/data/2.5/weather?q=karachi&units=imperial&appid=cea09a26775879b9f3185dceb4e801e9`;
 
@@ -25,10 +27,11 @@ const Weather = () => {
 
 
   return (
-    <div>
-      <p>{Math.round(((data.main.temp)-32)*5/9)}</p>
+    <WeatherContainer>
+      <Temp>{Math.round(((data.main.temp)-32)*5/9)} <span>&#8451;</span></Temp>
+      <City>Karachi, PK</City>
 
-    </div>
+    </WeatherContainer>
   )
 }
 
