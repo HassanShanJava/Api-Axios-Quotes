@@ -3,8 +3,8 @@ import axios from 'axios';
 
 import {QuoteContainer, Text} from './Styles/QouteStyles'
 
-
-const url='https://goquotes-api.herokuapp.com/api/v1/random?count=1';
+// had to change qoute api 
+const url='https://programming-quotes-api.herokuapp.com/Quotes/random';
 
 const Quote = () => {
 
@@ -14,7 +14,7 @@ const Quote = () => {
     
     axios.get(url).then(res=>{
       
-      setData(res.data)
+      setData(res)
 
     }).catch(err=>console.error(err))
   
@@ -25,10 +25,12 @@ const Quote = () => {
 
   if(!data) return null
 
+  console.log(data.data.author);
+
   return (
     <QuoteContainer>
-        <Text>{data.quotes[0].text}</Text>
-        <Text>-{data.quotes[0].author}</Text>
+        <Text>{data.data['en']}</Text>
+        <Text>-{data.data["author"]}</Text>
     </QuoteContainer>
   )
 }
